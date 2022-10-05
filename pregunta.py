@@ -32,7 +32,7 @@ def clean_data():
     
     #reemplazo de caracteres especiales dependiendo de la información de cada columna
     df['idea_negocio'] = df['idea_negocio'].map(lambda x: x.replace('-',' ').replace('_',' ').strip())
-    df['barrio'] = df['barrio'].map(lambda x: str(x).replace('-',' ').replace('_',' ').strip())
+    df['barrio'] = df['barrio'].map(lambda x: str(x).replace('-',' ').replace('_',' ').replace('bel¿n','belen').replace('nari¿o','nariño').strip())
     df['fecha_de_beneficio'] = df['fecha_de_beneficio'].map(lambda x: str(x).replace('-','/'))
     df['fecha_de_beneficio'] = df['fecha_de_beneficio'].map(lambda x: x if len(x.split('/')[0])!=4 else f"{x.split('/')[2]}/{x.split('/')[1]}/{x.split('/')[0]}")
     df['fecha_de_beneficio'] = df['fecha_de_beneficio'].map(lambda x: f"{x.split('/')[0].zfill(2)}/{x.split('/')[1].zfill(2)}/{x.split('/')[2].zfill(4)}")
